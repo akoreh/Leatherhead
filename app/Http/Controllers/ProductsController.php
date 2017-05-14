@@ -209,6 +209,7 @@ class ProductsController extends Controller
             $order=new Order();
 
             $order->cart = serialize($cart);
+            $order->number=time()*time()-time()/2;
             $order->address = $request->input('address');
             $order->payment_id = $charge->id;
 

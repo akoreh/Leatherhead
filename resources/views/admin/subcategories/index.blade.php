@@ -31,7 +31,12 @@
                         <td>{{$subcategory->id}}</td>
                         <td><img height=80px width=80px src="{{$subcategory->image->file}}" alt=""></td>
                         <td>{{$subcategory->name}} <a href="{{route('admin.subcategories.edit',$subcategory->id)}}">(Edit)</a></td>
-                        <td>{{$subcategory->category->name}}</td>
+
+                            @if(!empty($subcategory->category->name))
+                            <td> {{$subcategory->category->name}}</td>
+                                @else
+                                <td>No Category</td>
+                            @endif
                         <td>{{$subcategory->created_at->diffForHumans()}}</td>
                         <td>{{$subcategory->updated_at->diffForHumans()}}</td>
 
