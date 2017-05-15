@@ -52,6 +52,23 @@
 
                 </div>
             </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <h2>Related Products</h2>
+            <div class="related-products-wrapper">
+                    @foreach($relatedProducts as $relatedProduct)
+
+                       <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                           <a href="{{route('product.details',$relatedProduct->id)}}"><img src="{{$relatedProduct->image->file}}" alt="" class="product-image"></a>
+                           <a href="{{route('product.details',$relatedProduct->id)}}" class="product-title">{{$relatedProduct->name}}</a>
+                       </div>
+
+                    @endforeach
+            </div>
         </div>
     </div>
 

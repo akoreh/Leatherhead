@@ -57,8 +57,9 @@ class ProductsController extends Controller
     public function show($id)
     {
         $product=Product::find($id);
+        $relatedProducts = $this->getRelated($id);
 
-        return view('products.details',compact('product'));
+        return view('products.details',compact('product','relatedProducts'));
 
     }
 
@@ -226,4 +227,11 @@ class ProductsController extends Controller
         return redirect()->route('index')->withErrors(compact('successMessage'));
     }
 
+
+    private function getRelated($id){
+        $product=Product::findOrFail($id);
+
+      return  $relatedProducts=Product::where('subcategory_id',$product->subcategory_id)->where('name','!=',$product->name)->inRandomOrder(3)->get();
+
+    }
 }
