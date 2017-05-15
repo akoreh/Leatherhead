@@ -19,35 +19,42 @@
         
         
     </div>
-    
+
     <div class="details-product-wrapper">
         <div class="row">
-            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+            <div class="details-product-image-wrapper">
+                <div class="col-md-5 col-lg-5 col-sm-5 col-xs-12">
 
-                <img src="{{$product->image->file}}" alt="">
-                
+                    <img src="{{$product->image->file}}" alt="">
+
+                </div>
             </div>
-            <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12">
-                <h2 class="details-product-name">{{$product->name}}</h2>
-                <h3 class="details-product-price">${{$product->price}}.00</h3>
+            <div class="details-product-details-wrapper">
+                <div class="col-md-7 col-lg-7 col-sm-5 col-xs-12">
+                    <h2 class="details-product-name">{{$product->name}}</h2>
+                    <h3 class="details-product-price">${{$product->price}}.00</h3>
 
-                @if($product->stock >= 5)
+                    @if($product->stock >= 5)
 
-                    <h4 class="details-product-instock">In Stock</h4>
+                        <h4 class="details-product-instock">In Stock</h4>
+                        <a href="{{route('product.addToCart',$product->id)}}" class="btn btn-success button-cart">Add to Cart</a>
 
+                    @elseif($product->stock < 5 && $product->stock > 0)
+                        <h4 class="details-product-limitedstock">Limited Stock</h4>
+                        <a href="{{route('product.addToCart',$product->id)}}" class="btn btn-success button-cart">Add to Cart</a>
+                    @else
+                        <h4 class="details-product-outofstock">Out of Stock</h4>
+                    @endif
 
-                @elseif($product->stock < 5 && $product->stock > 0)
-                    <h4 class="details-product-limitedstock">Limited Stock</h4>
-                @else
-                    <h4 class="details-product-outofstock">Out of Stock</h4>
-                @endif
+                    <div class="details-product-description-wrapper">
+                        {!! $product->description !!}
+                    </div>
 
-                <a href="{{route('product.addToCart',$product->id)}}" class="btn btn-success">Add to Cart</a>
-
+                </div>
             </div>
         </div>
     </div>
-    
+
 
 
 @endsection

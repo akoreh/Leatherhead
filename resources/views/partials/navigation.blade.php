@@ -11,9 +11,9 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2" >
-            <ul class="nav navbar-nav custom_nav">
-
-
+        <div class="category-bar-wrapper">
+    <div class="col-md-10 col-md-offset-1">
+            <ul class="nav navbar-nav">
                 @foreach($categories as $category)
                     <li class="dropdown">
                         <a href="{{route('category.details',$category->id)}}" class="dropdown-toggle" >{{$category->name}}</a>
@@ -41,7 +41,8 @@
                         @endif
                     @endif
             </ul>
-
+            </div>
+        </div>
         </div>
     </div>
 </nav>

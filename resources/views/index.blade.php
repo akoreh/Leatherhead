@@ -24,7 +24,7 @@
     @endif
 
 
-  <div class="slider-wrapper">
+  <div class="slider-wrapper custom_slider">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
 
@@ -63,7 +63,7 @@
 
           @foreach($products as $product)
 
-              <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 product">
+              <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 product">
 
                   <a href="{{route('product.details',$product->id)}}"><img src="{{$product->image->file}}" alt="" class="product-image"></a>
                   <a href="{{route('product.details',$product->id)}}" class="product-title">{{$product->name}}</a>
