@@ -15,9 +15,7 @@ class Product extends Model
       'image_id',
       'keywords',
       'homepage',
-        'subcategory_id'
-
-
+      'subcategory_id'
     ];
 
 

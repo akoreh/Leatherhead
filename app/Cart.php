@@ -25,8 +25,6 @@ class Cart
 
     public function add($item, $id){
 
-        //storedItem = produc group (i.e a single specific product)
-
         $storedItem = ['qty'=> 0,'price'=>$item->price,'item'=>$item];
 
         if($this->items){
