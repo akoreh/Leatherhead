@@ -12,9 +12,10 @@
     @yield('title')
 
 
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
+    <link rel="shortcut icon" href="//cdn.shopify.com/s/files/1/0226/2169/t/4/assets/favicon.png?8909979558159475854" type="image/png">
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
+        <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Asap:400,700" rel="stylesheet">
 </head>
 

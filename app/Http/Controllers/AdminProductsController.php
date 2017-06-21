@@ -51,6 +51,13 @@ class AdminProductsController extends Controller
 
     }
 
+    public function delete($id){
+      $product=Product::findOrFail($id);
+      $product->delete();
+
+      return redirect('/admin/products');
+    }
+
     public function edit($id)
     {
         $categories=Category::all();

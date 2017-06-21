@@ -4,17 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Product;
 
 class HomeController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('auth');
+    
     }
 
     public function index()
     {
-        return view('home');
+      $collection = Product::where('homepage',1)->get();
+      return view("index",compact("collection"));
     }
 }

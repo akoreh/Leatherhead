@@ -98,7 +98,9 @@
         </div>
         <script>$('#description').html(tinymce.get('description').getContent());</script>
 
-
+        <div class="form-group">
+          <a class="btn btn-danger" href="{{route('product.delete',$product->id)}}" >Delete</a>
+        </div>
         {!! Form::close() !!}
     </div>
 </div>

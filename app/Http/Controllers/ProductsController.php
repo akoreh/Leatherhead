@@ -38,7 +38,7 @@ class ProductsController extends Controller
         $cart->add($product, $id);
 
         $request->session()->put('cart',$cart);
-        return redirect()->route('index');
+        return redirect()->route('product.details',$id);
 
     }
 
@@ -135,7 +135,7 @@ class ProductsController extends Controller
                 "description" => "Charge for leatherhead.dev"
             ));
 
-            //SAVING ORDER
+    
 
             $order=new Order();
 
@@ -159,9 +159,9 @@ class ProductsController extends Controller
 
 
     private function getRelated($id){
-        $product=Product::findOrFail($id);
+      $product=Product::findOrFail($id);
 
-      return  $relatedProducts=Product::where('subcategory_id',$product->subcategory_id)->where('name','!=',$product->name)->inRandomOrder(3)->get();
+      return  $relatedProducts=Product::where('subcategory_id',$product->subcategory_id)->where('name','!=',$product->name)->inRandomOrder()->limit(3)->get();
 
     }
 }

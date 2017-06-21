@@ -13,10 +13,7 @@
 
 use Illuminate\Support\Facades\Input;
 
-Route::get('/', function () {
-    $collection=\App\Product::all();
-    return view('index',compact('collection'));
-})->name('index');
+Route::get('/', 'HomeController@index')->name('index');
 
 Route::auth();
 
@@ -78,6 +75,8 @@ Route::group(['middleware'=>'admin'],function(){
     Route::resource('/admin/categories','AdminCategoriesController');
 
     Route::resource('/admin/subcategories','AdminSubcategoriesController');
+
+    Route::get('/admin/products/delete/{id}','AdminProductsController@delete')->name('product.delete');
 
 
 });

@@ -254,11 +254,16 @@ body {
 }
 
 .button-cart{
-  padding-bottom: 25px;
+  
 }
 .details-product-instock{
   color:green;
   font-family: 'Asap',sans-serif;
   font-weight:bold;
 }
-/*# sourceMappingURL=app.css.map */
+
+.details-product-outofstock{
+  color:red;
+  font-family:'Asap',sans-serif;
+  font-weight:bold;
+}

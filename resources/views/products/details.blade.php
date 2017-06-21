@@ -16,8 +16,8 @@
         <a href="{{route('category.details',$product->subcategory->category->id)}}">{{$product->subcategory->category->name}}</a>
         <span> > </span>
         <a href="{{route('subcategory.details',$product->subcategory->id)}}">{{$product->subcategory->name}}</a>
-        
-        
+
+
     </div>
 
     <div class="details-product-wrapper">
@@ -59,6 +59,7 @@
     <div class="row">
         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
             <h2>Related Products</h2>
+            <hr>
             <div class="related-products-wrapper">
                     @foreach($relatedProducts as $relatedProduct)
 
